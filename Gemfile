@@ -15,7 +15,7 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 
 #Bootstrap addition
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 5.1.0'
 #Bootstrap dependency
 gem 'jquery-rails'
 
