@@ -1,24 +1,47 @@
-<p id="notice"><%= notice %></p>
+ <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @invoice.name %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col md-8 col-md-offset">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Invoices</h3>
+        </div>
 
-<p>
-  <strong>Grade:</strong>
-  <%= @invoice.grade %>
-</p>
+        <div class="panel-body">
+          <p>
+            <strong>Name:</strong>
+            <%= @invoice.name %>
+          </p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @invoice.amount %>
-</p>
+          <p>
+            <strong>Grade:</strong>
+            <%= @invoice.grade %>
+          </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @invoice.date %>
-</p>
+          <p>
+            <strong>Amount:</strong>
+            <%= @invoice.amount %>
+          </p>
 
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
+          <p>
+            <strong>Date:</strong>
+            <%= @invoice.date %>
+          </p>
+        </div>
+      </div>
+      
+      <div class="panel-footer">
+        <div class="btn-group">
+          <%= link_to 'Edit', edit_invoice_path(@invoice), class: "btn btn-warning" %> 
+          <%= link_to 'Back', invoices_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
