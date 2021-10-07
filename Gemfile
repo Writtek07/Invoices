@@ -14,6 +14,11 @@ gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 
+#Bootstrap addition
+gem 'bootstrap', '~> 4.2.1'
+#Bootstrap dependency
+gem 'jquery-rails'
+
 
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
