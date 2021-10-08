@@ -1,37 +1,114 @@
-<%= form_with(model: invoice, local: true) do |form| %>
-  <% if invoice.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
-
-      <ul>
-        <% invoice.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="col-xs-12">
+<%= simple_form_for(@invoice) do |f| %>
+  <div id="invoice-wrap">
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3 class="page-header">INVOICE<small class="pull-right">Date: <span class="invoice_header_date"></span></small></h3>
+      </div><!-- /.col -->
     </div>
+
+    <div class="row invoice-info">
+      <div class="col-xs-4 invoice-col">
+        Student Name
+        <address>
+          <%= f.input_field :name, class: "form-control", id: "1" %>
+        </address>
+      </div><!-- /.col -->
+      <div class="col-xs-4 invoice-col">
+        To
+        <address>
+          <input class="form-control" id= "2"  value="Mimis Kids" />
+        </address>
+      </div><!-- /.col -->
+      <div class="row invoice-info">
+        <div class="col-xs-4 invoice-col">
+          Class
+          <address>
+            <%= f.input_field :grade, class: "form-control", id: "6", value: "1" %>
+          </address>
+        </div><!-- /.col -->
+      </div>
+      <div class="col-xs-4 invoice-col">
+        <form class="form-horizontal">
+
+          <div class="form-group">
+            <div class="col-xs-4"><label>Invoice #</label></div>
+            <div class="col-xs-8 invoice_num"><span id="invoice_number"><%= (Invoice.last.present? ? (Invoice.last.id + 1) : 1) %></span></div>
+          </div>
+          <div class="col-xs-12"></div>
+          <div class="form-group">
+            <div class="col-xs-4"><%= f.label :date, required: false %></div>
+            <div class="col-xs-8"><%= f.input_field :date, class: "form-control datepicker", as: :string, value: Date.today %></div>
+          </div>
+
+          <div class="col-xs-12"></div>
+          <div class="form-group">
+          </div>
+        </form>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+
+    <div class="row">
+      <div class="col-xs-12 table-responsive">
+        <hr>
+        <table class="table table-hover" id="items">
+      
+          <thead>
+              <th class="description">Fee Description</th>
+              <th class="unit">Amount</th>
+              <th class="no_print">Actions</th>
+          </thead>
+      
+          <tbody>
+            <tr class="item-row">
+              <td><input class="form-control item_desc"/></td>
+              <td><input class="form-control cost" value="00.00" /></td>
+              <td class="delete_td"><a class="delete" href="javascript:;" title="Remove row"><span class="ti-close"></span></a></td>
+            </tr>
+          
+            <tr class="item-row">
+              <td><input class="form-control item_desc"/></td>
+              <td><input class="form-control cost" value="0.00" /></td>
+              <td class="delete_td"><a class="delete" href="javascript:;" title="Remove row"><span class="ti-close"></span></a></td>
+            </tr>
+          
+            <tr id="hiderow">
+              <td colspan="6"><a id="addrow" class="btn btn-success btn-sm" href="javascript:;" title="Add a row"><span class="ti-plus"></span>  Add a row</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-6">
+        <div class="table-responsive">
+          <table class="table table-hover" id="totals">
+            <tr>
+              <th style="width:50%">Subtotal:</th>
+              <td><span id="subtotal">0.00</span><span class="subtotal_currency"></span></td>
+            </tr>
+            <tr>
+              <th>Tax:</th>
+              <td><input id="9" class="form-control" value="0.00" /></td>
+            </tr>
+            <tr>
+              <th>Total:</th>
+              <td class="balance"><span class="due" id="invoice_total">0.00</span><span class="subtotal_currency"></span></td>
+              <%=f.hidden_field :amount, id: "invoice_total1" %>
+            </tr>
+          </table>
+        </div>
+      </div><!-- /.col -->    
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 pull-left">
+        <a class="btn btn-info btn-sm" id="invoice_button" data-toggle="modal" data-target="#invoice_modal">Show Invoice</a>
+        <%= f.button :submit, 'Submit Payment', class: 'btn btn-warning btn-sm', id: "submit_invoice" %>    
+      </div>
+    </div>
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :grade %>
-    <%= form.text_field :grade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

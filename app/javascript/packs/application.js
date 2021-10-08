@@ -7,6 +7,11 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
+//$(document).ready(function(){
+//	$('.datepicker').datepicker({
+//		format: 'yyyy-mm-dd'
+//	});
+//});
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -18,4 +23,5 @@ require("channels")
 
 //= require jquery3
 //= require popper
+//= require bootstrap-datepicker
 //= require bootstrap-sprockets

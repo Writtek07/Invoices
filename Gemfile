@@ -18,7 +18,9 @@ gem 'webpacker', '~> 4.0'
 gem 'bootstrap-sass'
 #Bootstrap dependency
 gem 'jquery-rails'
-
+#Simple Form
+gem 'simple_form'
+#Datepicker gem
 
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
