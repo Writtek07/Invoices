@@ -10,20 +10,20 @@
 
     <div class="row invoice-info">
       <div class="col-xs-4 invoice-col">
-        Student Name
+        <strong>Student Name</strong>
         <address>
           <%= f.input_field :name, class: "form-control", id: "1" %>
         </address>
       </div><!-- /.col -->
       <div class="col-xs-4 invoice-col">
-        To
+        <strong>To</strong>
         <address>
           <input class="form-control" id= "2"  value="Mimis Kids" />
         </address>
       </div><!-- /.col -->
       <div class="row invoice-info">
         <div class="col-xs-4 invoice-col">
-          Class
+          <strong>Class</strong>
           <address>
             <%= f.input_field :grade, class: "form-control", id: "6", value: "1" %>
           </address>
@@ -50,7 +50,7 @@
     </div><!-- /.row -->
 
     <div class="row">
-      <div class="col-xs-12 table-responsive">
+      <div class="col-xs-14 table-responsive">
         <hr>
         <table class="table table-hover" id="items">
       
@@ -105,7 +105,6 @@
 
     <div class="row">
       <div class="col-xs-12 pull-left">
-        <a class="btn btn-info btn-sm" id="invoice_button" data-toggle="modal" data-target="#invoice_modal">Show Invoice</a>
         <%= f.button :submit, 'Submit Payment', class: 'btn btn-warning btn-sm', id: "submit_invoice" %>    
       </div>
     </div>
