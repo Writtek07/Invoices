@@ -18,7 +18,7 @@
       <div class="col-xs-4 invoice-col">
         <strong>To</strong>
         <address>
-          <input class="form-control" id= "2"  value="Mimis Kids" />
+          <input class="form-control" id= "2"  value="Mimis Kids" disabled/>
         </address>
       </div><!-- /.col -->
       <div class="row invoice-info">
@@ -39,7 +39,7 @@
           <div class="col-xs-12"></div>
           <div class="form-group">
             <div class="col-xs-4"><%= f.label :date, required: false %></div>
-            <div class="col-xs-8"><%= f.input_field :date, class: "form-control datepicker", as: :string, value: Date.today %></div>
+            <div class="col-xs-8"><%= f.input_field :date, class: "form-control datepicker", as: :string, value: Date.today, disabled: true %></div>
           </div>
 
           <div class="col-xs-12"></div>
@@ -64,13 +64,13 @@
             <tr class="item-row">
               <td><input class="form-control item_desc"/></td>
               <td><input class="form-control cost" value="00.00" /></td>
-              <td class="delete_td"><a class="delete" href="javascript:;" title="Remove row"><span class="ti-close"></span></a></td>
+              <td class="delete_td"><a class="delete" href="javascript:;" title="Remove row">Remove <span class="ti-trash"></span></a></td>
             </tr>
           
             <tr class="item-row">
               <td><input class="form-control item_desc"/></td>
-              <td><input class="form-control cost" value="0.00" /></td>
-              <td class="delete_td"><a class="delete" href="javascript:;" title="Remove row"><span class="ti-close"></span></a></td>
+              <td><input class="form-control cost" value="00.00" /></td>
+              <td class="delete_td"><a class="delete" href="javascript:;" title="Remove row">Remove <span class="ti-trash"></span></a></td>
             </tr>
           
             <tr id="hiderow">
